@@ -11,33 +11,33 @@ size_flags_horizontal = 3
 script = ExtResource("1_44dsg")
 
 [node name="Name" type="Label" parent="."]
-layout_mode = 2
-offset_right = 1152.0
+offset_right = 1920.0
 offset_bottom = 37.0
 theme_override_font_sizes/font_size = 24
 text = "Starwars"
 
-[node name="ModInfo" type="HBoxContainer" parent="."]
-layout_mode = 2
+[node name="ModInfo" type="GridContainer" parent="."]
 offset_top = 41.0
-offset_right = 1152.0
+offset_right = 1920.0
 offset_bottom = 72.0
-theme_override_constants/separation = 30
+theme_override_constants/h_separation = 20
+columns = 5
 
 [node name="Author" type="Label" parent="ModInfo"]
-layout_mode = 2
+custom_minimum_size = Vector2(200, 0)
 offset_top = 2.0
-offset_right = 118.0
+offset_right = 323.0
 offset_bottom = 28.0
 size_flags_horizontal = 3
 text = "Bioinvasion"
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="Description" type="RichTextLabel" parent="ModInfo"]
 custom_minimum_size = Vector2(550, 0)
-layout_mode = 2
-offset_left = 148.0
+offset_left = 343.0
 offset_top = 4.0
-offset_right = 698.0
+offset_right = 893.0
 offset_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -47,27 +47,24 @@ scroll_active = false
 autowrap_mode = 2
 
 [node name="GameVersion" type="Label" parent="ModInfo"]
-layout_mode = 2
-offset_left = 728.0
+offset_left = 913.0
 offset_top = 2.0
-offset_right = 846.0
+offset_right = 1236.0
 offset_bottom = 28.0
 size_flags_horizontal = 3
 text = "0.6.0.7 /Demo"
 
 [node name="LastUpdated" type="Label" parent="ModInfo"]
-layout_mode = 2
-offset_left = 876.0
+offset_left = 1256.0
 offset_top = 2.0
-offset_right = 994.0
+offset_right = 1578.0
 offset_bottom = 28.0
 size_flags_horizontal = 3
 text = "2022-11-14"
 
 [node name="DownloadPage" type="Button" parent="ModInfo"]
-layout_mode = 2
-offset_left = 1024.0
-offset_right = 1152.0
+offset_left = 1598.0
+offset_right = 1920.0
 offset_bottom = 31.0
 size_flags_horizontal = 3
 size_flags_vertical = 4

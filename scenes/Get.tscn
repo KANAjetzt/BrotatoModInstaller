@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwwh1jlbj2mo7"]
+
+[ext_resource type="Script" path="res://scenes/Get.gd" id="1_ucm1n"]
+[ext_resource type="PackedScene" uid="uid://dbj44cyw25078" path="res://UI_Mod_Card.tscn" id="2_qmc04"]
+
+[node name="MarginContainer" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+script = ExtResource("1_ucm1n")
+UI_Mod_Card = ExtResource("2_qmc04")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 1910.0
+offset_bottom = 1070.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ModList" type="VBoxContainer" parent="ScrollContainer"]
+offset_right = 68.0
+offset_bottom = 31.0
+size_flags_vertical = 0
+theme_override_constants/separation = 25
+
+[node name="Button" type="Button" parent="ScrollContainer/ModList"]
+offset_right = 68.0
+offset_bottom = 31.0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "Refresh"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HTTPRequest" type="HTTPRequest" parent="CanvasLayer"]
+
+[connection signal="pressed" from="ScrollContainer/ModList/Button" to="." method="_on_button_pressed"]

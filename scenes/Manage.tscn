@@ -1,0 +1,93 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1lg1uglk4y0v"]
+
+[ext_resource type="Script" path="res://scenes/Manage.gd" id="1_r3dv2"]
+
+[sub_resource type="Gradient" id="Gradient_i24vb"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 0.5)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vtywf"]
+gradient = SubResource("Gradient_i24vb")
+
+[node name="Manage" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+script = ExtResource("1_r3dv2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 1895.0
+offset_bottom = 1055.0
+
+[node name="BrotatoExePath" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+offset_right = 1870.0
+offset_bottom = 26.0
+
+[node name="Title" type="Label" parent="VBoxContainer/BrotatoExePath"]
+layout_mode = 2
+offset_right = 144.0
+offset_bottom = 26.0
+text = "Brotato .exe path: "
+
+[node name="Path" type="Label" parent="VBoxContainer/BrotatoExePath"]
+layout_mode = 2
+offset_left = 148.0
+offset_top = 1.0
+offset_right = 149.0
+offset_bottom = 24.0
+
+[node name="Drop" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+offset_top = 30.0
+offset_right = 1870.0
+offset_bottom = 1030.0
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Drop"]
+layout_mode = 2
+offset_right = 1870.0
+offset_bottom = 1000.0
+texture = SubResource("GradientTexture2D_vtywf")
+
+[node name="Label" type="Label" parent="VBoxContainer/Drop/TextureRect"]
+layout_mode = 0
+offset_top = 488.0
+offset_right = 1870.0
+offset_bottom = 511.0
+text = "Drop your mod files here to install them."
+horizontal_alignment = 1
+
+[node name="ButtonFileDialog" type="Button" parent="."]
+layout_mode = 2
+offset_left = 883.0
+offset_top = 524.0
+offset_right = 1036.0
+offset_bottom = 555.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+text = "Select Brotato .exe"
+icon_alignment = 1
+
+[node name="FileDialog" type="FileDialog" parent="."]
+title = "Open a File"
+position = Vector2i(200, 200)
+size = Vector2i(500, 800)
+exclusive = false
+ok_button_text = "select"
+file_mode = 0
+access = 2
+
+[connection signal="pressed" from="ButtonFileDialog" to="." method="_on_button_file_dialog_pressed"]
+[connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]
